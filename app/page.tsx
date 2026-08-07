@@ -1,22 +1,79 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    projectType: '',
-    message: ''
+  const [productTab, setProductTab] = useState(0);
+  const [benefitToggles, setBenefitToggles] = useState({
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
   });
 
-  const handleInputChange = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const toggleBenefit = (index: number) => {
+    setBenefitToggles({
+      ...benefitToggles,
+      [index]: !benefitToggles[index],
+    });
   };
+
+  const handleInputChange = (e: any) => {
+    // Form handling
+  };
+
+  const benefits = [
+    {
+      title: 'Plot & Orientation',
+      before: { text: 'Multiple Visits', desc: 'Buyers Confused About Orientation', icon: '🚗' },
+      after: { text: 'Instant Selection', desc: 'Plot & Orientation Crystal Clear', icon: '⚡' },
+    },
+    {
+      title: 'Space & Light',
+      before: { text: 'Cannot Visualize', desc: 'Space & Light Unclear', icon: '❌' },
+      after: { text: 'See Every Angle', desc: 'Light & Ventilation Visible', icon: '✅' },
+    },
+    {
+      title: 'Sales Team Narratives',
+      before: { text: 'Different Stories', desc: 'Team Explains Differently', icon: '🗣️' },
+      after: { text: 'Unified Message', desc: 'Consistent Message Always', icon: '📢' },
+    },
+    {
+      title: 'Amenities Preview',
+      before: { text: 'Wait for Construction', desc: 'Amenity Details Uncertain', icon: '⏳' },
+      after: { text: 'Walk Amenities Now', desc: 'Pool, Gym, Gardens Visible', icon: '🏊' },
+    },
+    {
+      title: 'Sales Verification',
+      before: { text: 'Buyer Skeptical', desc: 'Sales Estimates - No Proof', icon: '🤔' },
+      after: { text: 'Live Routing Data', desc: 'Instantly Verified with Data', icon: '📊' },
+    },
+  ];
+
+  const products = [
+    {
+      name: 'Interactive Touch Panel',
+      subcategories: [
+        '3D Model Showcase',
+        '3D Space Mapping & Amenities',
+        'Real Time City View',
+        'Interior Space Experience',
+        'Time & Climate Simulation',
+      ],
+    },
+    {
+      name: '3D Interactive Website',
+      subcategories: [
+        'Property Visualization',
+        '360° Tours',
+        'Interactive Walkthrough',
+        'Live Dashboard',
+      ],
+    },
+  ];
 
   return (
     <div className="bg-black text-white overflow-hidden">
@@ -26,7 +83,7 @@ export default function Home() {
         <div className="hidden md:flex gap-8 text-sm">
           <a href="#about" className="hover:text-blue-400">About</a>
           <a href="#industries" className="hover:text-blue-400">Industries</a>
-          <a href="#solutions" className="hover:text-blue-400">Solutions</a>
+          <a href="#products" className="hover:text-blue-400">Products</a>
           <a href="#contact" className="hover:text-blue-400">Contact</a>
         </div>
         <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full text-sm font-semibold">
@@ -36,8 +93,14 @@ export default function Home() {
 
       {/* SECTION 1: HERO */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center pt-20">
-        <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover" src="https://videos.pexels.com/video-files/855370/855370-hd_1280_720_30fps.mp4" />
-        <div className="absolute inset-0 bg-black/60" />
+        <iframe
+          src="https://www.youtube.com/embed/qwuqmW4t7cM?autoplay=1&mute=1&loop=1&playlist=qwuqmW4t7cM"
+          className="absolute inset-0 w-full h-full"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+        <div className="absolute inset-0 bg-black/50" />
         <motion.div className="relative z-10 text-center max-w-4xl mx-auto px-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
           <h1 className="text-7xl md:text-8xl font-bold mb-6 leading-tight">
             Building the Digital Future
@@ -80,21 +143,50 @@ export default function Home() {
             <h2 className="text-5xl font-bold mb-4">Industries We Serve</h2>
             <p className="text-gray-400 text-lg">Transforming diverse sectors with digital twin technology</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { name: 'Residential', icon: '🏘️', desc: 'Premium residential visualizations' },
-              { name: 'Commercial', icon: '🏢', desc: 'Mixed-use developments' },
-              { name: 'Industrial', icon: '🏭', desc: 'Manufacturing & logistics' },
-              { name: 'Government', icon: '🏛️', desc: 'Public infrastructure' },
-              { name: 'Infrastructure', icon: '🌉', desc: 'Roads, bridges & utilities' },
-              { name: 'Smart Cities', icon: '🌆', desc: 'Connected urban environments' },
-            ].map((industry, i) => (
-              <motion.div key={i} className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/40 to-cyan-950/40 border border-blue-500/30 hover:border-cyan-400" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} whileHover={{ y: -10 }}>
-                <div className="text-5xl mb-4">{industry.icon}</div>
-                <h3 className="text-2xl font-bold mb-2">{industry.name}</h3>
-                <p className="text-gray-400">{industry.desc}</p>
-              </motion.div>
-            ))}
+          
+          <div className="space-y-6">
+            {/* Row 1: 3 items */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { name: 'Residential', icon: '🏘️', desc: 'Premium residential projects' },
+                { name: 'Commercial', icon: '🏢', desc: 'Mixed-use developments' },
+                { name: 'Smart Cities', icon: '🌆', desc: 'Connected urban environments' },
+              ].map((industry, i) => (
+                <motion.div key={i} className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/40 to-cyan-950/40 border border-blue-500/30 hover:border-cyan-400" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} whileHover={{ y: -10 }}>
+                  <div className="text-5xl mb-4">{industry.icon}</div>
+                  <h3 className="text-2xl font-bold mb-2">{industry.name}</h3>
+                  <p className="text-gray-400">{industry.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Row 2: 2 items */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:max-w-2xl md:mx-auto">
+              {[
+                { name: 'Housing & Logistics', icon: '🏭', desc: 'Warehouses and distribution centers' },
+                { name: 'Aviation', icon: '✈️', desc: 'Airport infrastructure' },
+              ].map((industry, i) => (
+                <motion.div key={i} className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/40 to-cyan-950/40 border border-blue-500/30 hover:border-cyan-400" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: (i + 3) * 0.1 }} viewport={{ once: true }} whileHover={{ y: -10 }}>
+                  <div className="text-5xl mb-4">{industry.icon}</div>
+                  <h3 className="text-2xl font-bold mb-2">{industry.name}</h3>
+                  <p className="text-gray-400">{industry.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Row 3: 2 items */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:max-w-2xl md:mx-auto">
+              {[
+                { name: 'Hospitality', icon: '🏨', desc: 'Hotels and resorts' },
+                { name: 'Maritime', icon: '⛴️', desc: 'Port and maritime facilities' },
+              ].map((industry, i) => (
+                <motion.div key={i} className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/40 to-cyan-950/40 border border-blue-500/30 hover:border-cyan-400" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: (i + 5) * 0.1 }} viewport={{ once: true }} whileHover={{ y: -10 }}>
+                  <div className="text-5xl mb-4">{industry.icon}</div>
+                  <h3 className="text-2xl font-bold mb-2">{industry.name}</h3>
+                  <p className="text-gray-400">{industry.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -119,172 +211,128 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 5: SOLUTIONS */}
-      <section id="solutions" className="min-h-screen bg-black py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <h2 className="text-5xl font-bold mb-4">Our Solutions</h2>
-          </motion.div>
-          <div className="flex gap-4 mb-12 overflow-x-auto pb-4">
-            {['Sales Digital Twin', 'Construction Monitoring', 'Command Center', 'Asset Management'].map((sol, i) => (
-              <button key={i} onClick={() => setActiveTab(i)} className={`px-6 py-3 rounded-full whitespace-nowrap font-semibold transition ${activeTab === i ? 'bg-blue-600' : 'bg-gray-900'}`}>
-                {sol}
-              </button>
-            ))}
-          </div>
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} key={activeTab}>
-            <img src={['https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop'][activeTab]} alt="Solution" className="rounded-2xl w-full h-96 object-cover" />
-            <div>
-              <h3 className="text-4xl font-bold mb-4">{['Sales Digital Twin', 'Construction Monitoring', 'Digital Command Center', 'Asset Management'][activeTab]}</h3>
-              <p className="text-gray-300 text-lg">Industry-leading solution for transforming your business operations and maximizing efficiency.</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 6: SALES DIGITAL TWIN BENEFITS */}
-      <section className="min-h-screen bg-gradient-to-b from-black to-blue-950/20 py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <h2 className="text-5xl font-bold mb-4">Sales Digital Twin Benefits</h2>
-            <p className="text-gray-400 text-lg">Transform your sales process with immersive visualization</p>
-          </motion.div>
-
-          <div className="space-y-8">
-            {[
-              { before: 'Multiple Site Visits', after: 'Instant Selection', beforeDesc: 'Buyers Confused About Orientation', afterDesc: 'Plot & Orientation Clear', icon: '📍' },
-              { before: 'Cannot Visualize', after: 'See Every Angle', beforeDesc: 'Space & Light Unclear', afterDesc: 'Light & Ventilation Visible', icon: '💡' },
-              { before: 'Sales Estimates', after: 'Live Routing Data', beforeDesc: 'Buyer Skeptical About Timing', afterDesc: 'Instantly Verified', icon: '📊' },
-              { before: 'Wait for Construction', after: 'Walk Amenities Now', beforeDesc: 'Amenity Details Uncertain', afterDesc: 'Pool, Gym, Gardens Visible', icon: '🏊' },
-              { before: 'Different Narratives', after: 'One Unified Narrative', beforeDesc: 'Team Explains Differently', afterDesc: 'Consistent Message Always', icon: '📢' },
-            ].map((benefit, i) => (
-              <motion.div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}>
-                {/* Before */}
-                <div className="p-8 rounded-2xl bg-red-950/30 border-2 border-red-500/50">
-                  <div className="text-4xl mb-4">{benefit.icon}</div>
-                  <h3 className="text-2xl font-bold mb-2 text-red-300">{benefit.before}</h3>
-                  <p className="text-gray-300">{benefit.beforeDesc}</p>
-                </div>
-                {/* After */}
-                <div className="p-8 rounded-2xl bg-green-950/30 border-2 border-green-500/50">
-                  <div className="text-4xl mb-4">{benefit.icon}</div>
-                  <h3 className="text-2xl font-bold mb-2 text-green-300">{benefit.after}</h3>
-                  <p className="text-gray-300">{benefit.afterDesc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: ROI METRICS */}
+      {/* SECTION 5: BENEFITS - INTERACTIVE TOGGLE */}
       <section className="min-h-screen bg-black py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <h2 className="text-5xl font-bold mb-4">Proven ROI Results</h2>
-            <p className="text-gray-400 text-lg">Real impact from digital twin implementation</p>
+            <h2 className="text-5xl font-bold mb-4">Sales Digital Twin Benefits</h2>
+            <p className="text-gray-400 text-lg">Interactive comparison - Click any card to toggle</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { stat: '40%', label: 'Faster Sales Cycles', color: 'from-blue-600 to-cyan-600' },
-              { stat: '65%', label: 'Higher Conversion Rates', color: 'from-cyan-600 to-green-600' },
-              { stat: '50%', label: 'Reduction in Follow-up Costs', color: 'from-green-600 to-blue-600' },
-              { stat: '3x', label: 'More Qualified Leads', color: 'from-purple-600 to-pink-600' },
-            ].map((metric, i) => (
-              <motion.div key={i} className={`p-8 rounded-2xl bg-gradient-to-br ${metric.color} bg-opacity-20 border border-opacity-50 text-center`} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}>
-                <div className="text-6xl font-bold mb-4">{metric.stat}</div>
-                <p className="text-xl text-gray-200">{metric.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="space-y-8">
+            {benefits.map((benefit, i) => (
+              <motion.div
+                key={i}
+                className="cursor-pointer"
+                onClick={() => toggleBenefit(i)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold mb-4 text-center text-cyan-400">{benefit.title}</h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* BEFORE */}
+                  <motion.div
+                    className={`p-8 rounded-2xl border-2 transition-all duration-500 ${
+                      benefitToggles[i]
+                        ? 'border-green-500/30 bg-green-950/20'
+                        : 'border-red-500/50 bg-red-950/30'
+                    }`}
+                    animate={{ scale: benefitToggles[i] ? 0.95 : 1 }}
+                  >
+                    <div className="text-4xl mb-4">{benefit.before.icon}</div>
+                    <h4 className="text-2xl font-bold mb-2 text-red-300">{benefit.before.text}</h4>
+                    <p className="text-gray-300">{benefit.before.desc}</p>
+                  </motion.div>
 
-      {/* SECTION 8: FEATURE SHOWCASE */}
-      <section className="min-h-screen bg-gradient-to-b from-black to-blue-950/20 py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2 className="text-5xl font-bold text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            Platform Features
-          </motion.h2>
-
-          <div className="space-y-20">
-            {[
-              { title: 'Interactive Walkthrough', desc: 'Navigate through complex projects in real-time', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop' },
-              { title: 'AI Analytics', desc: 'Extract actionable insights from your digital twin', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop' },
-              { title: 'GIS Integration', desc: 'Connect with real-world geographic data', img: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=600&fit=crop' },
-              { title: 'IoT Monitoring', desc: 'Real-time sensor data visualization', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop' },
-            ].map((feature, i) => (
-              <motion.div key={i} className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'md:grid-cols-2 md:[&>*:first-child]:order-2' : ''}`} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-                <div>
-                  <h3 className="text-4xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-gray-300 text-lg">{feature.desc}</p>
+                  {/* AFTER */}
+                  <motion.div
+                    className={`p-8 rounded-2xl border-2 transition-all duration-500 ${
+                      benefitToggles[i]
+                        ? 'border-green-500/50 bg-green-950/30'
+                        : 'border-green-500/30 bg-green-950/20'
+                    }`}
+                    animate={{ scale: benefitToggles[i] ? 1 : 0.95 }}
+                  >
+                    <div className="text-4xl mb-4">{benefit.after.icon}</div>
+                    <h4 className="text-2xl font-bold mb-2 text-green-300">{benefit.after.text}</h4>
+                    <p className="text-gray-300">{benefit.after.desc}</p>
+                  </motion.div>
                 </div>
-                <img src={feature.img} alt={feature.title} className="rounded-2xl w-full h-96 object-cover" />
+
+                <div className="text-center mt-4 text-sm text-gray-400">
+                  {benefitToggles[i] ? '✅ Click to show BEFORE' : '🔄 Click to see AFTER'}
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 9: COMMAND CENTER */}
-      <section className="min-h-screen bg-black py-20 px-6 flex items-center">
-        <div className="max-w-7xl mx-auto w-full">
-          <motion.div className="text-center mb-12" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <h2 className="text-5xl font-bold mb-4">Digital Command Center</h2>
-            <p className="text-gray-400 text-lg">Centralized control for smart cities</p>
-          </motion.div>
-
-          <motion.div className="rounded-2xl border border-cyan-500/30 overflow-hidden bg-gradient-to-b from-blue-950/40 to-cyan-950/20 p-8" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { label: 'Power Usage', value: '2,847 MW', icon: '⚡' },
-                { label: 'Water Flow', value: '1,234 L/s', icon: '💧' },
-                { label: 'Traffic Flow', value: '94% Optimal', icon: '🚗' },
-                { label: 'Air Quality', value: 'Good', icon: '🌬️' },
-                { label: 'Construction Progress', value: '72%', icon: '🏗️' },
-                { label: 'Active Sensors', value: '1,847', icon: '📡' },
-                { label: 'Incidents Today', value: '0', icon: '⚠️' },
-                { label: 'System Health', value: '99.8%', icon: '✅' },
-              ].map((metric, i) => (
-                <motion.div key={i} className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-4 border border-blue-500/20" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}>
-                  <div className="text-3xl mb-2">{metric.icon}</div>
-                  <div className="text-2xl font-bold mb-1">{metric.value}</div>
-                  <div className="text-sm text-gray-400">{metric.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 10: WHY TWINXR */}
-      <section className="min-h-screen bg-gradient-to-b from-black to-blue-950/20 py-20 px-6">
+      {/* SECTION 6: PRODUCTS */}
+      <section id="products" className="min-h-screen bg-gradient-to-b from-black to-blue-950/20 py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <h2 className="text-5xl font-bold mb-4">Why Choose TWINXR</h2>
-            <p className="text-gray-400 text-lg">Unmatched capabilities for digital transformation</p>
+            <h2 className="text-5xl font-bold mb-4">Our Products</h2>
+            <p className="text-gray-400 text-lg">Comprehensive digital twin solutions</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: 'Immersive', desc: 'Photorealistic 3D environments' },
-              { title: 'Scalable', desc: 'From projects to entire cities' },
-              { title: 'AI-Powered', desc: 'Intelligent analytics & insights' },
-              { title: 'Cloud-Native', desc: 'Accessible anywhere, anytime' },
-              { title: 'Interactive', desc: 'Real-time customization' },
-              { title: 'Real-Time', desc: 'Live data integration' },
-            ].map((reason, i) => (
-              <motion.div key={i} className="p-8 rounded-2xl bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 hover:border-cyan-400 transition" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} whileHover={{ y: -10 }}>
-                <h3 className="text-2xl font-bold mb-3 text-cyan-400">{reason.title}</h3>
-                <p className="text-gray-300">{reason.desc}</p>
-              </motion.div>
+          {/* MAIN PRODUCT TABS */}
+          <div className="flex gap-4 mb-12 justify-center flex-wrap">
+            {products.map((product, i) => (
+              <button
+                key={i}
+                onClick={() => setProductTab(i)}
+                className={`px-8 py-3 rounded-full font-semibold transition ${
+                  productTab === i
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-900 text-gray-300 hover:bg-gray-800'
+                }`}
+              >
+                {product.name}
+              </button>
             ))}
           </div>
+
+          {/* SUB-CATEGORIES */}
+          <div className="mb-12">
+            <div className="flex gap-3 mb-8 overflow-x-auto pb-4 justify-center flex-wrap">
+              {products[productTab].subcategories.map((subcategory, i) => (
+                <motion.button
+                  key={i}
+                  className="px-6 py-2 rounded-full bg-gradient-to-r from-blue-600/30 to-cyan-600/30 border border-blue-500/50 hover:border-cyan-400 text-sm font-semibold transition whitespace-nowrap"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {subcategory}
+                </motion.button>
+              ))}
+            </div>
+          </div>
+
+          {/* VIDEO PLACEHOLDER */}
+          <motion.div
+            className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 aspect-video flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center">
+              <div className="text-6xl mb-4">🎬</div>
+              <p className="text-xl text-gray-300">YouTube Video Placeholder</p>
+              <p className="text-gray-400 mt-2">{products[productTab].name} - {products[productTab].subcategories[0]}</p>
+            </div>
+          </motion.div>
+
+          <p className="text-center mt-6 text-gray-400">
+            Watch on <span className="text-cyan-400 font-semibold">YouTube</span>
+          </p>
         </div>
       </section>
 
-      {/* SECTION 11: CONTACT */}
+      {/* SECTION 7: CONTACT */}
       <section id="contact" className="min-h-screen bg-black py-20 px-6 flex items-center">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
@@ -293,19 +341,19 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Form */}
+            {/* FORM */}
             <motion.form className="space-y-4" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <input type="text" placeholder="Your Name" className="w-full px-6 py-3 rounded-full bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition text-white" name="name" value={formData.name} onChange={handleInputChange} />
-              <input type="email" placeholder="Your Email" className="w-full px-6 py-3 rounded-full bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition text-white" name="email" value={formData.email} onChange={handleInputChange} />
-              <input type="tel" placeholder="Your Phone" className="w-full px-6 py-3 rounded-full bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition text-white" name="phone" value={formData.phone} onChange={handleInputChange} />
-              <input type="text" placeholder="Company Name" className="w-full px-6 py-3 rounded-full bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition text-white" name="company" value={formData.company} onChange={handleInputChange} />
-              <textarea placeholder="Your Message" rows={4} className="w-full px-6 py-3 rounded-2xl bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition resize-none text-white" name="message" value={formData.message} onChange={handleInputChange} />
+              <input type="text" placeholder="Your Name" className="w-full px-6 py-3 rounded-full bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition text-white" />
+              <input type="email" placeholder="Your Email" className="w-full px-6 py-3 rounded-full bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition text-white" />
+              <input type="tel" placeholder="Your Phone" className="w-full px-6 py-3 rounded-full bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition text-white" />
+              <input type="text" placeholder="Company Name" className="w-full px-6 py-3 rounded-full bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition text-white" />
+              <textarea placeholder="Your Message" rows={4} className="w-full px-6 py-3 rounded-2xl bg-gray-900/50 border border-blue-500/30 placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition resize-none text-white" />
               <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 px-8 py-3 rounded-full font-semibold transition">
                 Send Message
               </button>
             </motion.form>
 
-            {/* Info */}
+            {/* INFO */}
             <motion.div className="space-y-8" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div>
                 <h3 className="text-2xl font-bold mb-2">📍 Location</h3>
@@ -333,11 +381,10 @@ export default function Home() {
               <p className="text-gray-400 text-sm">Building the digital future of real estate, cities, and infrastructure.</p>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Solutions</h4>
+              <h4 className="font-bold mb-4">Products</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-cyan-400 transition">Sales Digital Twin</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition">Construction Monitoring</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition">Command Center</a></li>
+                <li><a href="#products" className="hover:text-cyan-400 transition">Interactive Touch Panel</a></li>
+                <li><a href="#products" className="hover:text-cyan-400 transition">3D Interactive Website</a></li>
               </ul>
             </div>
             <div>
