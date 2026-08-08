@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState(0);
   const [productTab, setProductTab] = useState(0);
   const [benefitToggles, setBenefitToggles] = useState<Record<number, boolean>>({
     0: false,
@@ -24,51 +23,74 @@ export default function Home() {
   const benefits = [
     {
       title: 'Plot & Orientation',
-      before: { text: 'Multiple Visits', desc: 'Buyers Confused About Orientation', icon: '🚗' },
-      after: { text: 'Instant Selection', desc: 'Plot & Orientation Crystal Clear', icon: '⚡' },
-    },
-    {
-      title: 'Space & Light',
-      before: { text: 'Cannot Visualize', desc: 'Space & Light Unclear', icon: '❌' },
-      after: { text: 'See Every Angle', desc: 'Light & Ventilation Visible', icon: '✅' },
+      conventional: { text: 'Multiple Visits', desc: 'Buyers Confused About Orientation', icon: '🚗' },
+      digital: { text: 'Instant Selection', desc: 'Plot & Orientation Crystal Clear', icon: '⚡' },
     },
     {
       title: 'Sales Team Narratives',
-      before: { text: 'Different Stories', desc: 'Team Explains Differently', icon: '🗣️' },
-      after: { text: 'Unified Message', desc: 'Consistent Message Always', icon: '📢' },
+      conventional: { text: 'Different Stories', desc: 'Team Explains Differently', icon: '🗣️' },
+      digital: { text: 'Unified Message', desc: 'Consistent Message Always', icon: '📢' },
+    },
+    {
+      title: 'Space & Light',
+      conventional: { text: 'Cannot Visualize', desc: 'Space & Light Unclear', icon: '❌' },
+      digital: { text: 'See Every Angle', desc: 'Light & Ventilation Visible', icon: '✅' },
     },
     {
       title: 'Amenities Preview',
-      before: { text: 'Wait for Construction', desc: 'Amenity Details Uncertain', icon: '⏳' },
-      after: { text: 'Walk Amenities Now', desc: 'Pool, Gym, Gardens Visible', icon: '🏊' },
+      conventional: { text: 'Wait for Construction', desc: 'Amenity Details Uncertain', icon: '⏳' },
+      digital: { text: 'Walk Amenities Now', desc: 'Pool, Gym, Gardens Visible', icon: '🏊' },
     },
     {
       title: 'Sales Verification',
-      before: { text: 'Buyer Skeptical', desc: 'Sales Estimates - No Proof', icon: '🤔' },
-      after: { text: 'Live Routing Data', desc: 'Instantly Verified with Data', icon: '📊' },
+      conventional: { text: 'Buyer Skeptical', desc: 'Sales Estimates - No Proof', icon: '🤔' },
+      digital: { text: 'Live Routing Data', desc: 'Instantly Verified with Data', icon: '📊' },
+    },
+  ];
+
+  const industries = [
+    {
+      main: 'Residential',
+      icon: '🏘️',
+      subcategories: ['Apartments', 'Villas', 'Open Plots', 'Townhouses']
+    },
+    {
+      main: 'Commercial',
+      icon: '🏢',
+      subcategories: ['Office Spaces', 'Retail Shops', 'Showrooms', 'Co-working']
+    },
+    {
+      main: 'Smart Cities',
+      icon: '🌆',
+      subcategories: ['Urban Planning', 'Infrastructure', 'Public Spaces', 'Transit Hubs']
+    },
+    {
+      main: 'Housing & Logistics',
+      icon: '🏭',
+      subcategories: ['Warehouses', 'Distribution', 'Fulfillment', 'Storage']
+    },
+    {
+      main: 'Aviation',
+      icon: '✈️',
+      subcategories: ['Terminals', 'Hangars', 'Runways', 'Ground Services']
+    },
+    {
+      main: 'Hospitality',
+      icon: '🏨',
+      subcategories: ['Hotels', 'Resorts', 'Restaurants', 'Lounges']
     },
   ];
 
   const products = [
-    {
-      name: 'Interactive Touch Panel',
-      subcategories: [
-        '3D Model Showcase',
-        '3D Space Mapping & Amenities',
-        'Real Time City View',
-        'Interior Space Experience',
-        'Time & Climate Simulation',
-      ],
-    },
-    {
-      name: '3D Interactive Website',
-      subcategories: [
-        'Property Visualization',
-        '360° Tours',
-        'Interactive Walkthrough',
-        'Live Dashboard',
-      ],
-    },
+    { name: '3D Model Showcase', icon: '🎨' },
+    { name: '3D Space Mapping & Amenities', icon: '📍' },
+    { name: 'Real Time City View', icon: '🌍' },
+    { name: 'Interior Space Experience', icon: '🏠' },
+    { name: 'Time & Climate Simulation', icon: '🌤️' },
+    { name: 'Property Visualization', icon: '🏗️' },
+    { name: '360° Tours', icon: '🔄' },
+    { name: 'Drive Mode', icon: '🚗' },
+    { name: 'Drone Mode', icon: '🚁' },
   ];
 
   return (
@@ -139,128 +161,164 @@ export default function Home() {
             <h2 className="text-5xl font-bold mb-4">Industries We Serve</h2>
             <p className="text-gray-400 text-lg">Transforming diverse sectors with digital twin technology</p>
           </motion.div>
-          
-          <div className="space-y-6">
-            {/* Row 1: 3 items */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { name: 'Residential', icon: '🏘️', desc: 'Premium residential projects' },
-                { name: 'Commercial', icon: '🏢', desc: 'Mixed-use developments' },
-                { name: 'Smart Cities', icon: '🌆', desc: 'Connected urban environments' },
-              ].map((industry, i) => (
-                <motion.div key={i} className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/40 to-cyan-950/40 border border-blue-500/30 hover:border-cyan-400" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} whileHover={{ y: -10 }}>
-                  <div className="text-5xl mb-4">{industry.icon}</div>
-                  <h3 className="text-2xl font-bold mb-2">{industry.name}</h3>
-                  <p className="text-gray-400">{industry.desc}</p>
-                </motion.div>
-              ))}
-            </div>
 
-            {/* Row 2: 2 items */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:max-w-2xl md:mx-auto">
-              {[
-                { name: 'Housing & Logistics', icon: '🏭', desc: 'Warehouses and distribution centers' },
-                { name: 'Aviation', icon: '✈️', desc: 'Airport infrastructure' },
-              ].map((industry, i) => (
-                <motion.div key={i} className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/40 to-cyan-950/40 border border-blue-500/30 hover:border-cyan-400" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: (i + 3) * 0.1 }} viewport={{ once: true }} whileHover={{ y: -10 }}>
-                  <div className="text-5xl mb-4">{industry.icon}</div>
-                  <h3 className="text-2xl font-bold mb-2">{industry.name}</h3>
-                  <p className="text-gray-400">{industry.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+          <div className="space-y-12">
+            {industries.map((industry, i) => (
+              <motion.div
+                key={i}
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                {/* LEFT - Sub-categories */}
+                <div className="space-y-3">
+                  {industry.subcategories.slice(0, 2).map((sub, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="p-4 rounded-xl bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition"
+                      whileHover={{ x: 10 }}
+                    >
+                      <p className="text-sm text-gray-300">{sub}</p>
+                    </motion.div>
+                  ))}
+                </div>
 
-            {/* Row 3: 2 items */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:max-w-2xl md:mx-auto">
-              {[
-                { name: 'Hospitality', icon: '🏨', desc: 'Hotels and resorts' },
-                { name: 'Maritime', icon: '⛴️', desc: 'Port and maritime facilities' },
-              ].map((industry, i) => (
-                <motion.div key={i} className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/40 to-cyan-950/40 border border-blue-500/30 hover:border-cyan-400" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: (i + 5) * 0.1 }} viewport={{ once: true }} whileHover={{ y: -10 }}>
-                  <div className="text-5xl mb-4">{industry.icon}</div>
-                  <h3 className="text-2xl font-bold mb-2">{industry.name}</h3>
-                  <p className="text-gray-400">{industry.desc}</p>
+                {/* CENTER - Main Industry */}
+                <motion.div
+                  className="p-12 rounded-2xl bg-gradient-to-br from-blue-600/30 to-cyan-600/30 border-2 border-cyan-400 text-center"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-6xl mb-4">{industry.icon}</div>
+                  <h3 className="text-3xl font-bold mb-2 text-cyan-300">{industry.main}</h3>
+                  <p className="text-gray-400 text-sm">Digital Twin Solutions</p>
                 </motion.div>
-              ))}
-            </div>
+
+                {/* RIGHT - Sub-categories */}
+                <div className="space-y-3">
+                  {industry.subcategories.slice(2).map((sub, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="p-4 rounded-xl bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition"
+                      whileHover={{ x: -10 }}
+                    >
+                      <p className="text-sm text-gray-300">{sub}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: DIGITAL TWIN */}
+      {/* SECTION 4: DIGITAL TWIN - HORIZONTAL FLOW */}
       <section className="min-h-screen bg-gradient-to-b from-black to-blue-950/20 py-20 px-6 flex items-center">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">What is a Digital Twin?</h2>
             <p className="text-gray-400 text-lg">A complete virtual representation of the physical world</p>
           </motion.div>
-          <div className="flex flex-col items-center gap-6">
-            {['Physical World', '3D Model', 'GIS Data', 'IoT Sensors', 'AI Analytics', 'Dashboard', 'Insights'].map((step, i) => (
-              <div key={i} className="flex items-center w-full max-w-2xl">
-                <motion.div className="flex-1 flex items-center justify-center" initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}>
-                  <div className="bg-gradient-to-r from-blue-600 to-cyan-600 p-6 rounded-full w-24 h-24 flex flex-col items-center justify-center text-center text-xs font-bold">{step}</div>
+
+          {/* HORIZONTAL FLOW */}
+          <div className="overflow-x-auto pb-8">
+            <div className="flex items-center gap-6 min-w-max justify-center px-4">
+              {['Physical World', '3D Model', 'GIS Data', 'IoT Sensors', 'AI Analytics', 'Dashboard', 'Insights'].map((step, i) => (
+                <motion.div
+                  key={i}
+                  className="flex items-center"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="bg-gradient-to-r from-blue-600 to-cyan-600 p-6 rounded-full w-28 h-28 flex flex-col items-center justify-center text-center text-xs font-bold whitespace-normal">
+                    {step}
+                  </div>
+                  {i < 6 && (
+                    <motion.div
+                      className="text-3xl text-cyan-400 mx-6"
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{ delay: i * 0.1, duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.div>
+                  )}
                 </motion.div>
-                {i < 6 && <motion.div className="text-2xl text-cyan-400 px-4" animate={{ y: [0, 5, 0] }} transition={{ delay: i * 0.1, duration: 1.5, repeat: Infinity }}>↓</motion.div>}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: BENEFITS - INTERACTIVE TOGGLE */}
+      {/* SECTION 5: BENEFITS - CONVENTIONAL vs DIGITAL TWIN */}
       <section className="min-h-screen bg-black py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">Sales Digital Twin Benefits</h2>
-            <p className="text-gray-400 text-lg">Interactive comparison - Click any card to toggle</p>
+            <p className="text-gray-400 text-lg">Comparing Conventional Approach vs Digital Twin</p>
           </motion.div>
 
-          <div className="space-y-8">
+          <div className="space-y-16">
             {benefits.map((benefit, i) => (
               <motion.div
                 key={i}
-                className="cursor-pointer"
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch cursor-pointer"
                 onClick={() => toggleBenefit(i)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold mb-4 text-center text-cyan-400">{benefit.title}</h3>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* BEFORE */}
-                  <motion.div
-                    className={`p-8 rounded-2xl border-2 transition-all duration-500 ${
-                      benefitToggles[i]
-                        ? 'border-green-500/30 bg-green-950/20'
-                        : 'border-red-500/50 bg-red-950/30'
-                    }`}
-                    animate={{ scale: benefitToggles[i] ? 0.95 : 1 }}
-                  >
-                    <div className="text-4xl mb-4">{benefit.before.icon}</div>
-                    <h4 className="text-2xl font-bold mb-2 text-red-300">{benefit.before.text}</h4>
-                    <p className="text-gray-300">{benefit.before.desc}</p>
-                  </motion.div>
+                {/* TITLE - LEFT */}
+                <motion.div className="flex items-center justify-end pr-8 md:pr-0">
+                  <h3 className="text-2xl font-bold text-cyan-400 text-right">{benefit.title}</h3>
+                </motion.div>
 
-                  {/* AFTER */}
+                {/* CONVENTIONAL - MIDDLE */}
+                <motion.div
+                  className={`p-12 rounded-2xl border-2 transition-all duration-500 flex flex-col items-center justify-center text-center ${
+                    benefitToggles[i]
+                      ? 'border-red-500/30 bg-red-950/20'
+                      : 'border-red-500/50 bg-red-950/30'
+                  }`}
+                  animate={{ scale: benefitToggles[i] ? 0.95 : 1 }}
+                  whileHover={{ scale: 1.05 }}
+                >
                   <motion.div
-                    className={`p-8 rounded-2xl border-2 transition-all duration-500 ${
-                      benefitToggles[i]
-                        ? 'border-green-500/50 bg-green-950/30'
-                        : 'border-green-500/30 bg-green-950/20'
-                    }`}
-                    animate={{ scale: benefitToggles[i] ? 1 : 0.95 }}
+                    className="text-7xl mb-6"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ delay: i * 0.1, duration: 2, repeat: Infinity }}
                   >
-                    <div className="text-4xl mb-4">{benefit.after.icon}</div>
-                    <h4 className="text-2xl font-bold mb-2 text-green-300">{benefit.after.text}</h4>
-                    <p className="text-gray-300">{benefit.after.desc}</p>
+                    {benefit.conventional.icon}
                   </motion.div>
-                </div>
+                  <h4 className="text-2xl font-bold mb-3 text-red-300">{benefit.conventional.text}</h4>
+                  <p className="text-gray-300 text-sm">{benefit.conventional.desc}</p>
+                  <p className="text-red-400 font-bold mt-6 text-lg">CONVENTIONAL</p>
+                </motion.div>
 
-                <div className="text-center mt-4 text-sm text-gray-400">
-                  {benefitToggles[i] ? '✅ Click to show BEFORE' : '🔄 Click to see AFTER'}
-                </div>
+                {/* DIGITAL TWIN - RIGHT */}
+                <motion.div
+                  className={`p-12 rounded-2xl border-2 transition-all duration-500 flex flex-col items-center justify-center text-center ${
+                    benefitToggles[i]
+                      ? 'border-green-500/50 bg-green-950/30'
+                      : 'border-green-500/30 bg-green-950/20'
+                  }`}
+                  animate={{ scale: benefitToggles[i] ? 1 : 0.95 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.div
+                    className="text-7xl mb-6"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ delay: i * 0.1, duration: 2, repeat: Infinity }}
+                  >
+                    {benefit.digital.icon}
+                  </motion.div>
+                  <h4 className="text-2xl font-bold mb-3 text-green-300">{benefit.digital.text}</h4>
+                  <p className="text-gray-300 text-sm">{benefit.digital.desc}</p>
+                  <p className="text-green-400 font-bold mt-6 text-lg">DIGITAL TWIN</p>
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -272,59 +330,40 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">Our Products</h2>
-            <p className="text-gray-400 text-lg">Comprehensive digital twin solutions</p>
+            <p className="text-gray-400 text-lg">Complete digital twin solutions for every need</p>
           </motion.div>
 
-          {/* MAIN PRODUCT TABS */}
-          <div className="flex gap-4 mb-12 justify-center flex-wrap">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, i) => (
-              <button
+              <motion.div
                 key={i}
-                onClick={() => setProductTab(i)}
-                className={`px-8 py-3 rounded-full font-semibold transition ${
-                  productTab === i
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-900 text-gray-300 hover:bg-gray-800'
-                }`}
+                className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 hover:border-cyan-400 transition"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
               >
-                {product.name}
-              </button>
+                {/* PRODUCT CARD */}
+                <div className="p-8 flex flex-col items-center justify-between h-full">
+                  <div>
+                    <div className="text-6xl mb-4 text-center">{product.icon}</div>
+                    <h3 className="text-xl font-bold text-center text-cyan-300 mb-6">{product.name}</h3>
+                  </div>
+
+                  {/* VIDEO PLACEHOLDER */}
+                  <div className="w-full aspect-video bg-gradient-to-br from-blue-800/40 to-cyan-800/40 border border-blue-500/30 rounded-xl flex items-center justify-center mb-4">
+                    <div className="text-center">
+                      <div className="text-4xl mb-2">🎬</div>
+                      <p className="text-xs text-gray-400">Video Coming Soon</p>
+                    </div>
+                  </div>
+
+                  <p className="text-center text-gray-400 text-sm">Watch on YouTube</p>
+                </div>
+              </motion.div>
             ))}
           </div>
-
-          {/* SUB-CATEGORIES */}
-          <div className="mb-12">
-            <div className="flex gap-3 mb-8 overflow-x-auto pb-4 justify-center flex-wrap">
-              {products[productTab].subcategories.map((subcategory, i) => (
-                <motion.button
-                  key={i}
-                  className="px-6 py-2 rounded-full bg-gradient-to-r from-blue-600/30 to-cyan-600/30 border border-blue-500/50 hover:border-cyan-400 text-sm font-semibold transition whitespace-nowrap"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {subcategory}
-                </motion.button>
-              ))}
-            </div>
-          </div>
-
-          {/* VIDEO PLACEHOLDER */}
-          <motion.div
-            className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 aspect-video flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-center">
-              <div className="text-6xl mb-4">🎬</div>
-              <p className="text-xl text-gray-300">YouTube Video Placeholder</p>
-              <p className="text-gray-400 mt-2">{products[productTab].name} - {products[productTab].subcategories[0]}</p>
-            </div>
-          </motion.div>
-
-          <p className="text-center mt-6 text-gray-400">
-            Watch on <span className="text-cyan-400 font-semibold">YouTube</span>
-          </p>
         </div>
       </section>
 
@@ -379,8 +418,8 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Products</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#products" className="hover:text-cyan-400 transition">Interactive Touch Panel</a></li>
-                <li><a href="#products" className="hover:text-cyan-400 transition">3D Interactive Website</a></li>
+                <li><a href="#products" className="hover:text-cyan-400 transition">3D Model Showcase</a></li>
+                <li><a href="#products" className="hover:text-cyan-400 transition">Drive & Drone Mode</a></li>
               </ul>
             </div>
             <div>
