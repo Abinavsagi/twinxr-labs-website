@@ -127,9 +127,46 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-black text-white overflow-hidden">
+    <div className="relative bg-gradient-to-b from-slate-950 via-blue-950 to-slate-950 text-white overflow-hidden">
+      {/* Animated Wave Background */}
+      <div className="fixed inset-0 -z-10">
+        <svg className="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#ec4899" stopOpacity="0.1" />
+            </linearGradient>
+          </defs>
+          
+          {/* Wave 1 */}
+          <motion.path
+            d="M0,150 Q300,100 600,150 T1200,150 L1200,0 L0,0 Z"
+            fill="url(#waveGrad1)"
+            animate={{ d: ["M0,150 Q300,100 600,150 T1200,150 L1200,0 L0,0 Z", "M0,200 Q300,150 600,200 T1200,200 L1200,0 L0,0 Z", "M0,150 Q300,100 600,150 T1200,150 L1200,0 L0,0 Z"] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          />
+          
+          {/* Wave 2 */}
+          <motion.path
+            d="M0,300 Q300,250 600,300 T1200,300 L1200,100 L0,100 Z"
+            fill="url(#waveGrad1)"
+            animate={{ d: ["M0,300 Q300,250 600,300 T1200,300 L1200,100 L0,100 Z", "M0,350 Q300,280 600,350 T1200,350 L1200,100 L0,100 Z", "M0,300 Q300,250 600,300 T1200,300 L1200,100 L0,100 Z"] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+          
+          {/* Wave 3 */}
+          <motion.path
+            d="M0,450 Q300,400 600,450 T1200,450 L1200,200 L0,200 Z"
+            fill="url(#waveGrad1)"
+            animate={{ d: ["M0,450 Q300,400 600,450 T1200,450 L1200,200 L0,200 Z", "M0,500 Q300,430 600,500 T1200,500 L1200,200 L0,200 Z", "M0,450 Q300,400 600,450 T1200,450 L1200,200 L0,200 Z"] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          />
+        </svg>
+      </div>
+
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-black/80 backdrop-blur-md border-b border-blue-500/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-black/60 backdrop-blur-md border-b border-blue-500/20">
         <div className="text-2xl font-bold text-cyan-400">TWINXR</div>
         <div className="hidden md:flex gap-8 text-sm">
           <a href="#industries" className="hover:text-blue-400">Industries</a>
@@ -167,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: INDUSTRIES */}
-      <section id="industries" className="min-h-screen bg-black py-20 px-6">
+      <section id="industries" className="min-h-screen bg-gradient-to-b from-transparent via-black/40 to-black py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-20" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">Industries We Transform</h2>
@@ -227,7 +264,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 3: DIGITAL TWIN - HORIZONTAL WITH ARROWS */}
-      <section className="min-h-screen bg-gradient-to-b from-black to-blue-950/20 py-20 px-6 flex items-center">
+      <section className="min-h-screen bg-gradient-to-b from-black via-blue-950/30 to-black py-20 px-6 flex items-center">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">What is a Digital Twin?</h2>
@@ -278,7 +315,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: BENEFITS - CLEANER SPACING */}
-      <section className="min-h-screen bg-black py-20 px-6">
+      <section className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div className="text-center mb-20" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">Sales Digital Twin Benefits</h2>
@@ -350,7 +387,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 5: PRODUCTS */}
-      <section id="products" className="min-h-screen bg-gradient-to-b from-black to-blue-950/20 py-20 px-6">
+      <section id="products" className="min-h-screen bg-gradient-to-b from-black via-blue-950/20 to-black py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">Our Products</h2>
@@ -390,7 +427,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 6: ABOUT */}
-      <section id="about" className="min-h-screen bg-black py-20 px-6 flex items-center">
+      <section id="about" className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black py-20 px-6 flex items-center">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* TEXT */}
@@ -475,7 +512,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 7: CONTACT */}
-      <section id="contact" className="min-h-screen bg-black py-20 px-6 flex items-center">
+      <section id="contact" className="min-h-screen bg-gradient-to-b from-black to-slate-950 py-20 px-6 flex items-center">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">Let's Build Together</h2>
@@ -515,7 +552,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-gradient-to-b from-black to-blue-950/20 border-t border-blue-500/20 py-16 px-6">
+      <footer className="bg-gradient-to-b from-slate-950 to-black border-t border-blue-500/20 py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
