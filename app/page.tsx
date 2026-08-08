@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
   const [productTab, setProductTab] = useState(0);
-  const [benefitToggles, setBenefitToggles] = useState({
+  const [benefitToggles, setBenefitToggles] = useState<Record<number, boolean>>({
     0: false,
     1: false,
     2: false,
@@ -15,14 +15,10 @@ export default function Home() {
   });
 
   const toggleBenefit = (index: number) => {
-    setBenefitToggles({
-      ...benefitToggles,
-      [index]: !benefitToggles[index],
-    });
-  };
-
-  const handleInputChange = (e: any) => {
-    // Form handling
+    setBenefitToggles((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   const benefits = [
