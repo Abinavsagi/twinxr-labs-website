@@ -9,7 +9,6 @@ export default function Home() {
     1: false,
     2: false,
     3: false,
-    4: false,
   });
 
   const toggleBenefit = (index: number) => {
@@ -22,99 +21,109 @@ export default function Home() {
   const benefits = [
     {
       title: 'Plot & Orientation',
-      conventional: { text: 'Multiple Visits', desc: 'Buyers Confused About Orientation', icon: '🚗' },
-      digital: { text: 'Instant Selection', desc: 'Plot & Orientation Crystal Clear', icon: '⚡' },
+      conventional: { text: 'Multiple Visits', desc: 'Buyers Confused About Orientation', icon: '📍' },
+      digital: { text: 'Instant Selection', desc: 'Plot & Orientation Crystal Clear', icon: '✓' },
     },
     {
       title: 'Sales Team Narratives',
-      conventional: { text: 'Different Stories', desc: 'Team Explains Differently', icon: '🗣️' },
-      digital: { text: 'Unified Message', desc: 'Consistent Message Always', icon: '📢' },
+      conventional: { text: 'Different Stories', desc: 'Team Explains Differently', icon: '≠' },
+      digital: { text: 'Unified Message', desc: 'Consistent Message Always', icon: '=' },
     },
     {
       title: 'Space & Light Visualization',
-      conventional: { text: 'Cannot Visualize', desc: 'Space & Light Unclear', icon: '❌' },
-      digital: { text: 'See Every Angle', desc: 'Light & Ventilation Visible', icon: '✅' },
+      conventional: { text: 'Cannot Visualize', desc: 'Space & Light Unclear', icon: '●' },
+      digital: { text: 'See Every Angle', desc: 'Light & Ventilation Visible', icon: '◆' },
     },
     {
       title: 'Amenities Preview',
       conventional: { text: 'Wait for Construction', desc: 'Amenity Details Uncertain', icon: '⏳' },
-      digital: { text: 'Walk Amenities Now', desc: 'Pool, Gym, Gardens Visible', icon: '🏊' },
-    },
-    {
-      title: 'Sales Verification',
-      conventional: { text: 'Buyer Skeptical', desc: 'Sales Estimates - No Proof', icon: '🤔' },
-      digital: { text: 'Live Routing Data', desc: 'Instantly Verified with Data', icon: '📊' },
+      digital: { text: 'Walk Amenities Now', desc: 'Pool, Gym, Gardens Visible', icon: '▶' },
     },
   ];
 
   const industries = [
     {
       main: 'Residential',
-      icon: '🏘️',
+      icon: '🏘',
       subcategories: [
-        { name: 'Apartments', emoji: '🏢' },
-        { name: 'Villas', emoji: '🏡' },
-        { name: 'Open Plots', emoji: '📍' },
-        { name: 'Townhouses', emoji: '🏠' }
+        { name: 'Apartments', icon: '▭' },
+        { name: 'Villas', icon: '■' },
+        { name: 'Open Plots', icon: '▪' },
+        { name: 'Townhouses', icon: '▬' }
       ]
     },
     {
       main: 'Commercial',
-      icon: '🏢',
+      icon: '▲',
       subcategories: [
-        { name: 'Office Spaces', emoji: '💼' },
-        { name: 'Retail Shops', emoji: '🛍️' },
-        { name: 'Showrooms', emoji: '🎨' },
-        { name: 'Co-working', emoji: '👥' }
+        { name: 'Office Spaces', icon: '⊞' },
+        { name: 'Retail Shops', icon: '◈' },
+        { name: 'Showrooms', icon: '◊' },
+        { name: 'Co-working', icon: '⊕' }
       ]
     },
     {
       main: 'Smart Cities',
-      icon: '🌆',
+      icon: '◇',
       subcategories: [
-        { name: 'Urban Planning', emoji: '📐' },
-        { name: 'Infrastructure', emoji: '🌉' },
-        { name: 'Public Spaces', emoji: '🏞️' },
-        { name: 'Transit Hubs', emoji: '🚇' }
+        { name: 'Urban Planning', icon: '⊡' },
+        { name: 'Infrastructure', icon: '⊟' },
+        { name: 'Public Spaces', icon: '◉' },
+        { name: 'Transit Hubs', icon: '⊚' }
       ]
     },
     {
       main: 'Housing & Logistics',
-      icon: '🏭',
+      icon: '⊞',
       subcategories: [
-        { name: 'Warehouses', emoji: '📦' },
-        { name: 'Distribution', emoji: '🚚' },
-        { name: 'Fulfillment', emoji: '✅' },
-        { name: 'Storage', emoji: '🗄️' }
+        { name: 'Warehouses', icon: '⊠' },
+        { name: 'Distribution', icon: '⊡' },
+        { name: 'Fulfillment', icon: '⊙' },
+        { name: 'Storage', icon: '⊕' }
       ]
     },
     {
       main: 'Aviation',
-      icon: '✈️',
+      icon: '▴',
       subcategories: [
-        { name: 'Terminals', emoji: '🏛️' },
-        { name: 'Hangars', emoji: '🛩️' },
-        { name: 'Runways', emoji: '🛫' },
-        { name: 'Ground Services', emoji: '🛠️' }
+        { name: 'Terminals', icon: '◈' },
+        { name: 'Hangars', icon: '▮' },
+        { name: 'Runways', icon: '▯' },
+        { name: 'Ground Services', icon: '▰' }
       ]
     },
     {
       main: 'Hospitality',
-      icon: '🏨',
+      icon: '◆',
       subcategories: [
-        { name: 'Hotels', emoji: '🛏️' },
-        { name: 'Resorts', emoji: '🏖️' },
-        { name: 'Restaurants', emoji: '🍽️' },
-        { name: 'Lounges', emoji: '🍸' }
+        { name: 'Hotels', icon: '⬡' },
+        { name: 'Resorts', icon: '⬢' },
+        { name: 'Restaurants', icon: '⬣' },
+        { name: 'Lounges', icon: '⬤' }
       ]
     },
   ];
 
   const products = [
-    { name: '3D Model Showcase', emoji: '🎨', desc: 'Immersive 3D visualization' },
-    { name: 'Property Visualization', emoji: '🏗️', desc: 'Complete project overview' },
-    { name: 'Drive Mode', emoji: '🚗', desc: 'Navigate like driving a car' },
-    { name: 'Drone Mode', emoji: '🚁', desc: 'Aerial perspective view' },
+    { name: '3D Model Showcase', icon: '█' },
+    { name: '3D Space Mapping & Amenities', icon: '◼' },
+    { name: 'Real Time City View', icon: '■' },
+    { name: 'Interior Space Experience', icon: '▮' },
+    { name: 'Time & Climate Simulation', icon: '▯' },
+    { name: 'Property Visualization', icon: '□' },
+    { name: '360° Tours', icon: '◇' },
+    { name: 'Drive Mode', icon: '▴' },
+    { name: 'Drone Mode', icon: '▲' },
+  ];
+
+  const digitalTwinSteps = [
+    { name: 'Physical World', icon: '🌍' },
+    { name: '3D Model', icon: '▭' },
+    { name: 'GIS Data', icon: '◈' },
+    { name: 'IoT Sensors', icon: '◆' },
+    { name: 'AI Analytics', icon: '⊕' },
+    { name: 'Dashboard', icon: '◇' },
+    { name: 'Insights', icon: '✦' },
   ];
 
   return (
@@ -180,10 +189,10 @@ export default function Home() {
                   {industry.subcategories.slice(0, 2).map((sub, idx) => (
                     <motion.div
                       key={idx}
-                      className="p-4 rounded-xl bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition text-center"
+                      className="p-4 rounded-lg bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition text-center"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="text-3xl mb-2">{sub.emoji}</div>
+                      <div className="text-3xl font-bold mb-2 text-cyan-400">{sub.icon}</div>
                       <p className="text-sm text-gray-300 font-semibold">{sub.name}</p>
                     </motion.div>
                   ))}
@@ -191,11 +200,11 @@ export default function Home() {
 
                 {/* CENTER - Main Industry */}
                 <motion.div
-                  className="col-span-1 p-12 rounded-2xl bg-gradient-to-br from-blue-600/30 to-cyan-600/30 border-2 border-cyan-400 text-center flex flex-col items-center justify-center"
+                  className="col-span-1 p-8 rounded-2xl bg-gradient-to-br from-blue-600/30 to-cyan-600/30 border-2 border-cyan-400 text-center"
                   whileHover={{ scale: 1.08 }}
                 >
-                  <div className="text-7xl mb-4">{industry.icon}</div>
-                  <h3 className="text-3xl font-bold text-cyan-300">{industry.main}</h3>
+                  <div className="text-6xl mb-3 font-bold text-cyan-300">{industry.icon}</div>
+                  <h3 className="text-2xl font-bold text-cyan-300">{industry.main}</h3>
                 </motion.div>
 
                 {/* RIGHT - Sub-categories */}
@@ -203,10 +212,10 @@ export default function Home() {
                   {industry.subcategories.slice(2).map((sub, idx) => (
                     <motion.div
                       key={idx}
-                      className="p-4 rounded-xl bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition text-center"
+                      className="p-4 rounded-lg bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition text-center"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="text-3xl mb-2">{sub.emoji}</div>
+                      <div className="text-3xl font-bold mb-2 text-cyan-400">{sub.icon}</div>
                       <p className="text-sm text-gray-300 font-semibold">{sub.name}</p>
                     </motion.div>
                   ))}
@@ -217,7 +226,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: DIGITAL TWIN - HORIZONTAL GRID */}
+      {/* SECTION 3: DIGITAL TWIN - HORIZONTAL WITH ARROWS */}
       <section className="min-h-screen bg-gradient-to-b from-black to-blue-950/20 py-20 px-6 flex items-center">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
@@ -225,28 +234,40 @@ export default function Home() {
             <p className="text-gray-400 text-lg">A complete virtual representation connected to reality</p>
           </motion.div>
 
-          {/* 4x2 GRID - ALL ON SCREEN */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['Physical World', '3D Model', 'GIS Data', 'IoT Sensors', 'AI Analytics', 'Dashboard', 'Insights', 'Real Impact'].map((step, i) => (
+          {/* GRID WITH ARROWS - ALL ON SCREEN */}
+          <div className="flex flex-wrap justify-center items-center gap-4 mb-4">
+            {digitalTwinSteps.map((step, i) => (
               <motion.div
                 key={i}
-                className="aspect-square bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-6 flex flex-col items-center justify-center text-center border border-cyan-400/50 hover:border-cyan-400"
+                className="flex items-center"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.08 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
               >
-                <div className="text-4xl mb-3">
-                  {['🌍', '🎨', '📍', '📡', '🤖', '📊', '💡', '✨'][i]}
-                </div>
-                <p className="text-sm font-bold text-white">{step}</p>
+                <motion.div
+                  className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg p-4 w-24 h-24 flex flex-col items-center justify-center text-center border border-cyan-400/50 hover:border-cyan-400"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-3xl font-bold text-white mb-1">{step.icon}</div>
+                  <p className="text-xs font-bold text-white">{step.name.split(' ')[0]}</p>
+                </motion.div>
+                
+                {i < digitalTwinSteps.length - 1 && (
+                  <motion.div
+                    className="text-3xl text-cyan-400 mx-2 font-bold"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ delay: i * 0.08, duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.div>
+                )}
               </motion.div>
             ))}
           </div>
 
           <motion.p 
-            className="text-center mt-12 text-gray-400 text-lg max-w-2xl mx-auto"
+            className="text-center mt-8 text-gray-400 text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -289,7 +310,7 @@ export default function Home() {
                     whileHover={{ scale: 1.03 }}
                   >
                     <motion.div
-                      className="text-8xl mb-6"
+                      className="text-7xl mb-6 font-bold"
                       animate={{ scale: [1, 1.15, 1] }}
                       transition={{ delay: i * 0.1, duration: 2.5, repeat: Infinity }}
                     >
@@ -311,7 +332,7 @@ export default function Home() {
                     whileHover={{ scale: 1.03 }}
                   >
                     <motion.div
-                      className="text-8xl mb-6"
+                      className="text-7xl mb-6 font-bold"
                       animate={{ scale: [1, 1.15, 1] }}
                       transition={{ delay: i * 0.1, duration: 2.5, repeat: Infinity }}
                     >
@@ -333,33 +354,22 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-5xl font-bold mb-4">Our Products</h2>
-            <p className="text-gray-400 text-lg">Powerful tools for every perspective</p>
+            <p className="text-gray-400 text-lg">Comprehensive solutions for complete visualization</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, i) => (
               <motion.div
                 key={i}
-                className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 hover:border-cyan-400 transition"
+                className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 hover:border-cyan-400 transition p-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <div className="p-12 flex flex-col items-center justify-center h-full">
-                  <div className="text-7xl mb-6">{product.emoji}</div>
-                  <h3 className="text-2xl font-bold text-center text-cyan-300 mb-3">{product.name}</h3>
-                  <p className="text-gray-400 text-center mb-8">{product.desc}</p>
-                  
-                  {/* VIDEO PLACEHOLDER */}
-                  <div className="w-full aspect-video bg-gradient-to-br from-blue-800/40 to-cyan-800/40 border border-blue-500/30 rounded-xl flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-5xl mb-3">🎬</div>
-                      <p className="text-sm text-gray-400">Video Coming Soon</p>
-                    </div>
-                  </div>
-                </div>
+                <div className="text-6xl font-bold text-center text-cyan-300 mb-6">{product.icon}</div>
+                <h3 className="text-xl font-bold text-center text-cyan-300">{product.name}</h3>
               </motion.div>
             ))}
           </div>
@@ -398,20 +408,54 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* IMAGE */}
+            {/* PROFESSIONAL GENERATED IMAGE */}
             <motion.div
-              className="h-full min-h-96 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-2xl border border-blue-500/30 flex items-center justify-center overflow-hidden"
+              className="h-full min-h-96 relative"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <motion.div
-                animate={{ rotateY: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="text-9xl"
-              >
-                🏙️
-              </motion.div>
+              <svg viewBox="0 0 400 400" className="w-full h-full">
+                <defs>
+                  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#0369a1', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: '#06b6d4', stopOpacity: 1 }} />
+                  </linearGradient>
+                </defs>
+                
+                {/* Background */}
+                <rect width="400" height="400" fill="none" />
+                
+                {/* Isometric City - Left Building */}
+                <g>
+                  <polygon points="80,200 80,280 140,320 140,240" fill="#1e40af" opacity="0.8" />
+                  <polygon points="80,200 140,240 140,160 80,120" fill="#3b82f6" opacity="0.8" />
+                  <polygon points="140,240 140,320 200,360 200,280" fill="#0ea5e9" opacity="0.8" />
+                </g>
+                
+                {/* Center Building (Tallest) */}
+                <g>
+                  <polygon points="160,120 160,280 220,320 220,160" fill="#06b6d4" opacity="0.9" />
+                  <polygon points="160,120 220,160 220,80 160,40" fill="#22d3ee" opacity="0.9" />
+                  <polygon points="220,160 220,320 280,360 280,200" fill="#0891b2" opacity="0.9" />
+                </g>
+                
+                {/* Right Building */}
+                <g>
+                  <polygon points="240,180 240,280 300,320 300,220" fill="#1e40af" opacity="0.8" />
+                  <polygon points="240,180 300,220 300,120 240,80" fill="#3b82f6" opacity="0.8" />
+                  <polygon points="300,220 300,320 360,360 360,260" fill="#0ea5e9" opacity="0.8" />
+                </g>
+                
+                {/* Accent Elements */}
+                <circle cx="160" cy="150" r="8" fill="#06b6d4" opacity="0.6" />
+                <circle cx="220" cy="200" r="6" fill="#22d3ee" opacity="0.6" />
+                <circle cx="280" cy="240" r="7" fill="#0891b2" opacity="0.6" />
+                
+                {/* Grid Lines */}
+                <line x1="160" y1="40" x2="160" y2="320" stroke="#0891b2" strokeWidth="1" opacity="0.3" strokeDasharray="5,5" />
+                <line x1="220" y1="80" x2="220" y2="360" stroke="#0891b2" strokeWidth="1" opacity="0.3" strokeDasharray="5,5" />
+              </svg>
             </motion.div>
           </div>
         </div>
