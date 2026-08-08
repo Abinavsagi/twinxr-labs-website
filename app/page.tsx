@@ -21,109 +21,109 @@ export default function Home() {
   const benefits = [
     {
       title: 'Plot & Orientation',
-      conventional: { text: 'Multiple Visits', desc: 'Buyers Confused About Orientation', icon: '📍' },
-      digital: { text: 'Instant Selection', desc: 'Plot & Orientation Crystal Clear', icon: '✓' },
+      conventional: { text: 'Multiple Visits', desc: 'Buyers Confused About Orientation', icon: '🚗' },
+      digital: { text: 'Instant Selection', desc: 'Plot & Orientation Crystal Clear', icon: '⚡' },
     },
     {
       title: 'Sales Team Narratives',
-      conventional: { text: 'Different Stories', desc: 'Team Explains Differently', icon: '≠' },
-      digital: { text: 'Unified Message', desc: 'Consistent Message Always', icon: '=' },
+      conventional: { text: 'Different Stories', desc: 'Team Explains Differently', icon: '🗣️' },
+      digital: { text: 'Unified Message', desc: 'Consistent Message Always', icon: '📢' },
     },
     {
       title: 'Space & Light Visualization',
-      conventional: { text: 'Cannot Visualize', desc: 'Space & Light Unclear', icon: '●' },
-      digital: { text: 'See Every Angle', desc: 'Light & Ventilation Visible', icon: '◆' },
+      conventional: { text: 'Cannot Visualize', desc: 'Space & Light Unclear', icon: '❌' },
+      digital: { text: 'See Every Angle', desc: 'Light & Ventilation Visible', icon: '✅' },
     },
     {
       title: 'Amenities Preview',
       conventional: { text: 'Wait for Construction', desc: 'Amenity Details Uncertain', icon: '⏳' },
-      digital: { text: 'Walk Amenities Now', desc: 'Pool, Gym, Gardens Visible', icon: '▶' },
+      digital: { text: 'Walk Amenities Now', desc: 'Pool, Gym, Gardens Visible', icon: '🏊' },
     },
   ];
 
   const industries = [
     {
       main: 'Residential',
-      icon: '🏘',
+      icon: '🏘️',
       subcategories: [
-        { name: 'Apartments', icon: '▭' },
-        { name: 'Villas', icon: '■' },
-        { name: 'Open Plots', icon: '▪' },
-        { name: 'Townhouses', icon: '▬' }
+        { name: 'Apartments', emoji: '🏢' },
+        { name: 'Villas', emoji: '🏡' },
+        { name: 'Open Plots', emoji: '📍' },
+        { name: 'Townhouses', emoji: '🏠' }
       ]
     },
     {
       main: 'Commercial',
-      icon: '▲',
+      icon: '🏢',
       subcategories: [
-        { name: 'Office Spaces', icon: '⊞' },
-        { name: 'Retail Shops', icon: '◈' },
-        { name: 'Showrooms', icon: '◊' },
-        { name: 'Co-working', icon: '⊕' }
+        { name: 'Office Spaces', emoji: '💼' },
+        { name: 'Retail Shops', emoji: '🛍️' },
+        { name: 'Showrooms', emoji: '🎨' },
+        { name: 'Co-working', emoji: '👥' }
       ]
     },
     {
       main: 'Smart Cities',
-      icon: '◇',
+      icon: '🌆',
       subcategories: [
-        { name: 'Urban Planning', icon: '⊡' },
-        { name: 'Infrastructure', icon: '⊟' },
-        { name: 'Public Spaces', icon: '◉' },
-        { name: 'Transit Hubs', icon: '⊚' }
+        { name: 'Urban Planning', emoji: '📐' },
+        { name: 'Infrastructure', emoji: '🌉' },
+        { name: 'Public Spaces', emoji: '🏞️' },
+        { name: 'Transit Hubs', emoji: '🚇' }
       ]
     },
     {
       main: 'Housing & Logistics',
-      icon: '⊞',
+      icon: '🏭',
       subcategories: [
-        { name: 'Warehouses', icon: '⊠' },
-        { name: 'Distribution', icon: '⊡' },
-        { name: 'Fulfillment', icon: '⊙' },
-        { name: 'Storage', icon: '⊕' }
+        { name: 'Warehouses', emoji: '📦' },
+        { name: 'Distribution', emoji: '🚚' },
+        { name: 'Fulfillment', emoji: '✅' },
+        { name: 'Storage', emoji: '🗄️' }
       ]
     },
     {
       main: 'Aviation',
-      icon: '▴',
+      icon: '✈️',
       subcategories: [
-        { name: 'Terminals', icon: '◈' },
-        { name: 'Hangars', icon: '▮' },
-        { name: 'Runways', icon: '▯' },
-        { name: 'Ground Services', icon: '▰' }
+        { name: 'Terminals', emoji: '🏛️' },
+        { name: 'Hangars', emoji: '🛩️' },
+        { name: 'Runways', emoji: '🛫' },
+        { name: 'Ground Services', emoji: '🛠️' }
       ]
     },
     {
       main: 'Hospitality',
-      icon: '◆',
+      icon: '🏨',
       subcategories: [
-        { name: 'Hotels', icon: '⬡' },
-        { name: 'Resorts', icon: '⬢' },
-        { name: 'Restaurants', icon: '⬣' },
-        { name: 'Lounges', icon: '⬤' }
+        { name: 'Hotels', emoji: '🛏️' },
+        { name: 'Resorts', emoji: '🏖️' },
+        { name: 'Restaurants', emoji: '🍽️' },
+        { name: 'Lounges', emoji: '🍸' }
       ]
     },
   ];
 
   const products = [
-    { name: '3D Model Showcase', icon: '█' },
-    { name: '3D Space Mapping & Amenities', icon: '◼' },
-    { name: 'Real Time City View', icon: '■' },
-    { name: 'Interior Space Experience', icon: '▮' },
-    { name: 'Time & Climate Simulation', icon: '▯' },
-    { name: 'Property Visualization', icon: '□' },
-    { name: '360° Tours', icon: '◇' },
-    { name: 'Drive Mode', icon: '▴' },
-    { name: 'Drone Mode', icon: '▲' },
+    { name: '3D Model Showcase', emoji: '🎨' },
+    { name: '3D Space Mapping & Amenities', emoji: '📍' },
+    { name: 'Real Time City View', emoji: '🌍' },
+    { name: 'Interior Space Experience', emoji: '🏠' },
+    { name: 'Time & Climate Simulation', emoji: '🌤️' },
+    { name: 'Property Visualization', emoji: '🏗️' },
+    { name: '360° Tours', emoji: '🔄' },
+    { name: 'Drive Mode', emoji: '🚗' },
+    { name: 'Drone Mode', emoji: '🚁' },
   ];
 
   const digitalTwinSteps = [
-    { name: 'Physical World', icon: '🌍' },
-    { name: '3D Model', icon: '▭' },
-    { name: 'GIS Data', icon: '◈' },
-    { name: 'IoT Sensors', icon: '◆' },
-    { name: 'AI Analytics', icon: '⊕' },
-    { name: 'Dashboard', icon: '◇' },
-    { name: 'Insights', icon: '✦' },
+    { name: 'Physical World', emoji: '🌍' },
+    { name: '3D Model', emoji: '🎨' },
+    { name: 'GIS Data', emoji: '📍' },
+    { name: 'IoT Sensors', emoji: '📡' },
+    { name: 'AI Analytics', emoji: '🤖' },
+    { name: 'Dashboard', emoji: '📊' },
+    { name: 'Insights', emoji: '💡' },
   ];
 
   return (
@@ -184,38 +184,38 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                {/* LEFT - Sub-categories */}
+                {/* LEFT - Sub-categories (2) */}
                 <div className="space-y-3">
                   {industry.subcategories.slice(0, 2).map((sub, idx) => (
                     <motion.div
                       key={idx}
-                      className="p-4 rounded-lg bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition text-center"
+                      className="p-4 rounded-xl bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition text-center"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="text-3xl font-bold mb-2 text-cyan-400">{sub.icon}</div>
+                      <div className="text-3xl mb-2">{sub.emoji}</div>
                       <p className="text-sm text-gray-300 font-semibold">{sub.name}</p>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* CENTER - Main Industry */}
+                {/* CENTER - Main Industry (3 columns width) */}
                 <motion.div
-                  className="col-span-1 p-8 rounded-2xl bg-gradient-to-br from-blue-600/30 to-cyan-600/30 border-2 border-cyan-400 text-center"
+                  className="col-span-1 md:col-span-3 p-12 rounded-2xl bg-gradient-to-br from-blue-600/30 to-cyan-600/30 border-2 border-cyan-400 text-center flex flex-col items-center justify-center mx-auto md:mx-0"
                   whileHover={{ scale: 1.08 }}
                 >
-                  <div className="text-6xl mb-3 font-bold text-cyan-300">{industry.icon}</div>
-                  <h3 className="text-2xl font-bold text-cyan-300">{industry.main}</h3>
+                  <div className="text-7xl mb-4">{industry.icon}</div>
+                  <h3 className="text-3xl font-bold text-cyan-300">{industry.main}</h3>
                 </motion.div>
 
-                {/* RIGHT - Sub-categories */}
+                {/* RIGHT - Sub-categories (2) */}
                 <div className="space-y-3">
                   {industry.subcategories.slice(2).map((sub, idx) => (
                     <motion.div
                       key={idx}
-                      className="p-4 rounded-lg bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition text-center"
+                      className="p-4 rounded-xl bg-gradient-to-br from-blue-950/30 to-cyan-950/30 border border-blue-500/30 hover:border-cyan-400 transition text-center"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="text-3xl font-bold mb-2 text-cyan-400">{sub.icon}</div>
+                      <div className="text-3xl mb-2">{sub.emoji}</div>
                       <p className="text-sm text-gray-300 font-semibold">{sub.name}</p>
                     </motion.div>
                   ))}
@@ -249,7 +249,7 @@ export default function Home() {
                   className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg p-4 w-24 h-24 flex flex-col items-center justify-center text-center border border-cyan-400/50 hover:border-cyan-400"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="text-3xl font-bold text-white mb-1">{step.icon}</div>
+                  <div className="text-4xl mb-1">{step.emoji}</div>
                   <p className="text-xs font-bold text-white">{step.name.split(' ')[0]}</p>
                 </motion.div>
                 
@@ -310,7 +310,7 @@ export default function Home() {
                     whileHover={{ scale: 1.03 }}
                   >
                     <motion.div
-                      className="text-7xl mb-6 font-bold"
+                      className="text-7xl mb-6"
                       animate={{ scale: [1, 1.15, 1] }}
                       transition={{ delay: i * 0.1, duration: 2.5, repeat: Infinity }}
                     >
@@ -332,7 +332,7 @@ export default function Home() {
                     whileHover={{ scale: 1.03 }}
                   >
                     <motion.div
-                      className="text-7xl mb-6 font-bold"
+                      className="text-7xl mb-6"
                       animate={{ scale: [1, 1.15, 1] }}
                       transition={{ delay: i * 0.1, duration: 2.5, repeat: Infinity }}
                     >
@@ -361,15 +361,28 @@ export default function Home() {
             {products.map((product, i) => (
               <motion.div
                 key={i}
-                className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 hover:border-cyan-400 transition p-8"
+                className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/30 hover:border-cyan-400 transition"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <div className="text-6xl font-bold text-center text-cyan-300 mb-6">{product.icon}</div>
-                <h3 className="text-xl font-bold text-center text-cyan-300">{product.name}</h3>
+                <div className="p-8 flex flex-col items-center justify-between h-full">
+                  {/* ICON */}
+                  <div className="text-5xl mb-4">{product.emoji}</div>
+                  
+                  {/* NAME */}
+                  <h3 className="text-xl font-bold text-center text-cyan-300 mb-6">{product.name}</h3>
+                  
+                  {/* VIDEO PLACEHOLDER */}
+                  <div className="w-full aspect-video bg-gradient-to-br from-blue-800/40 to-cyan-800/40 border border-blue-500/30 rounded-xl flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-4xl mb-2">🎬</div>
+                      <p className="text-xs text-gray-400">Video Coming Soon</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
