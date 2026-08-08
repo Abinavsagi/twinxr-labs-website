@@ -127,7 +127,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative text-white">
+    <div className="relative text-white bg-black">
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-black/60 backdrop-blur-md border-b border-blue-500/20">
         <div className="text-2xl font-bold text-cyan-400">TWINXR</div>
@@ -515,7 +515,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-black/60 border-t border-blue-500/20 py-16 px-6">
+      <footer className="bg-black/80 border-t border-blue-500/20 py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
@@ -527,6 +527,7 @@ export default function Home() {
               <h4 className="font-bold mb-4 text-gray-300">Products</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="#products" className="hover:text-cyan-400 transition">3D Model Showcase</a></li>
+                <li><a href="#products" className="hover:text-cyan-400 transition">360° Tours</a></li>
                 <li><a href="#products" className="hover:text-cyan-400 transition">Drive & Drone Mode</a></li>
               </ul>
             </motion.div>
@@ -542,12 +543,10 @@ export default function Home() {
             
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
               <h4 className="font-bold mb-4 text-gray-300">Follow Us</h4>
-              <div className="flex gap-4 text-2xl">
-                <a href="https://instagram.com" className="hover:text-cyan-400 transition">📷</a>
-                <a href="https://youtube.com" className="hover:text-cyan-400 transition">📹</a>
-                <a href="https://linkedin.com" className="hover:text-cyan-400 transition">💼</a>
-                <a href="https://facebook.com" className="hover:text-cyan-400 transition">👥</a>
-                <a href="https://twitter.com" className="hover:text-cyan-400 transition">𝕏</a>
+              <div className="flex gap-6 text-2xl">
+                <a href="https://instagram.com" className="hover:text-cyan-400 transition duration-300 transform hover:scale-110">📷</a>
+                <a href="https://youtube.com" className="hover:text-cyan-400 transition duration-300 transform hover:scale-110">📹</a>
+                <a href="https://linkedin.com" className="hover:text-cyan-400 transition duration-300 transform hover:scale-110">💼</a>
               </div>
             </motion.div>
           </div>
